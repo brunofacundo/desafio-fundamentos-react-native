@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components/native';
 import { FlatList } from 'react-native';
 
@@ -13,12 +14,12 @@ export const ProductContainer = styled.View`
     flex-direction: row;
 `;
 
-export const ProductList = styled(FlatList).attrs({
+export const ProductList = (styled(FlatList).attrs({
     numColumns: 2
 })`
     flex: 1;
     padding: 0 10px;
-`;
+` as React.ComponentType) as new <T>() => FlatList<T>;
 
 export const Product = styled.View`
     background: #fff;
