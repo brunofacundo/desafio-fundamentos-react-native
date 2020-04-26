@@ -7,7 +7,7 @@ interface Product {
     title: string;
     image_url: string;
     price: number;
-    quantity: number;
+    quantity?: number;
 }
 
 interface CartContext {
@@ -52,7 +52,7 @@ const CartProvider: React.FC = ({ children }) => {
             });
 
             if (!existProduct) {
-                newProducts.push(product);
+                newProducts.push({ ...product, quantity: 1 });
             }
 
             AsyncStorage.setItem('@GoMarketplace:products', JSON.stringify(newProducts));
